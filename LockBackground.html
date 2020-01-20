@@ -16,7 +16,10 @@
                 hours = 12;
             }
 
-            document.getElementById("time").innerHTML = hours + ":" + (minutes > 9 ? minutes : "0" + minutes);
+            document.getElementById("time").innerHTML = hours + ":" + (minutes > 9 ? minutes : "0" + minutes); 
+		if(type == "battery") {
+		   document.getElementById("battery").innerHTML = batteryPercent + "%"; 	
+		}
         }
     </script>
     <style>
@@ -52,11 +55,8 @@
 
 <body>
     <div id="time"></div>
+    <div id="battery"></div>
     <div class="image">
-    </div>
-    <div class="box">
-    </div>
-    <div class="bar">
     </div>
 </body>
 
