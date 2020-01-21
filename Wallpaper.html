@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function mainUpdate(type) {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+	    var day = date.getDay(); 
+	    switch(day) {
+           	case 0:
+		    day = "Sunday";
+    		    break;
+  		case 1:
+    		   day = "Monday";
+    		   break;
+  		case 2:
+     		   day = "Tuesday";
+    		   break;
+  		case 3:
+    		   day = "Wednesday";
+    		   break;
+  		case 4:
+    		   day = "Thursday";
+    		   break;
+  		case 5:
+    		   day = "Friday";
+    		   break;
+  		case 6:
+    		   day = "Saturday";
+	    }
+
+            hours = hours > 12 ? hours - 12 : hours;
+            if (hours == 0) {
+                hours = 12;
+            }
+
+	var month = date.getMonth(); 
+		switch(month) {
+		    case 0:
+			month = "Jan";
+			break;
+		    case 1:
+			month = "Feb";
+			break;
+		    case 2:
+			month = "Mar";
+                        break;
+		    case 3:
+			month = "Apr";
+                        break;
+                    case 4:
+			month = "May";
+                        break;
+		    case 5:
+			month = "Jun";
+                        break;
+                    case 6:
+			month = "Jul";
+                        break;
+                    case 7:
+			month = "Aug";
+                        break;
+                    case 8:
+			month = "Sep";
+                        break;
+		    case 9:
+			month = "Oct";
+                        break;
+                    case 10:
+			month = "Nov";
+                        break;
+                    case 11:
+			month = "Dec";
+                        break;
+		}
+	    document.getElementById("cal").innerHTML = day + ", " + date.getDay() + " " + month;  
+
+            document.getElementById("time").innerHTML = hours + ":" + (minutes > 9 ? minutes : "0" + minutes); 
+		if(type == "battery") {
+		   if(batteryCharging){
+		      document.getElementById("battery").style.color="#2e856e";
+		   }
+		   else{
+		      document.getElementById("battery").style.color="white";
+		   }
+		   document.getElementById("battery").innerHTML = batteryPercent; 	
+		}
+        }
+    </script>
+    <style>
+        body {
+                background-color: #afc3cc;
+        }
+        .container {
+            margin:0 auto;
+            padding: 0;
+        }
+        .image {
+            background-image: url("wall.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 200px;
+            width:auto;
+            text-align: center;
+            padding:0;
+            margin:0;
+            margin-top:130px;
+        }
+        #time{
+            font-size:36pt;
+            color:white;
+            font-family:Palatino;
+            position:absolute;
+            bottom:79.0%;
+			padding-bottom:0;
+			margin-bottom:0; 
+            left:13%;
+        }
+	#cal{
+	   font-size:24pt;
+	   position:absolute;
+	   color:white;
+	   font-family:Palatino;
+	   left:13%; 
+	   top:49.5%;
+	}
+	#battery{
+	   position:absolute;
+	   font-size:24pt;
+	   font-family:Palatino;
+	   left:37%;
+	   bottom:79.75%;
+	   margin-bottom:0; 
+	   padding-bottom:0; 
+	}
+    </style>
+</head>
+
+<body>
+    <div id="time"></div>
+    <div id="battery"></div>
+    <div class="image"></div>
+    <div id ="cal"></div>
+</body>
+
+</html>
